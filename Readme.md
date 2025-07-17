@@ -1,3 +1,5 @@
+## Folder Structure
+```
 /project-root
 │
 ├── index.html              ← Main landing page
@@ -14,3 +16,4 @@
 │
 └── /assets
     └── (images, fonts, icons, etc.)
+```
