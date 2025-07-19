@@ -1,579 +1,563 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aniko Eye Cart Pvt. Ltd. - Premium Optical Retail Showroom</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
 
-  <body>
-    <!-- Header Section -->
-    <header>
-      <div class="container">
-        <div class="header-content">
-          <div class="logo">
-            <svg
-              class="logo-svg"
-              viewBox="0 0 163 34"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M32.937 1.554c-3.968-2.48-9.193-1.89-13.852 1.039C14.44-.335 9.213-.925 5.25 1.553c-6.27 3.919-7.032 14.01-1.701 22.54 3.93 6.289 10.074 9.974 15.544 9.906 5.47.068 11.615-3.617 15.545-9.906 5.324-8.53 4.568-18.621-1.701-22.54zM6.43 22.292a20.436 20.436 0 0 1-2.46-5.632 16.104 16.104 0 0 1-.534-5.31c.238-3.153 1.521-5.608 3.612-6.914s4.855-1.385 7.8-.217c.441.177.878.38 1.312.606a24.092 24.092 0 0 0-4.228 5.08C8.697 15.086 7.71 20.849 8.84 25.444a20.912 20.912 0 0 1-2.408-3.151H6.43zm27.786-5.634a20.484 20.484 0 0 1-2.46 5.632 21.103 21.103 0 0 1-2.408 3.158c1.01-4.12.324-9.165-2.153-13.897a.624.624 0 0 0-.895-.243l-7.72 4.823a.629.629 0 0 0-.2.87l1.133 1.81a.632.632 0 0 0 .869.2l5.004-3.125c.162.486.324.97.445 1.457.472 1.725.653 3.518.536 5.303-.238 3.15-1.521 5.606-3.612 6.914a7.061 7.061 0 0 1-3.579 1.036h-.16a7.051 7.051 0 0 1-3.578-1.036c-2.093-1.308-3.376-3.763-3.614-6.914a16.143 16.143 0 0 1 .534-5.31 21.015 21.015 0 0 1 6.444-10.314 16.136 16.136 0 0 1 4.532-2.806c2.936-1.168 5.705-1.09 7.797.217 2.093 1.308 3.375 3.76 3.613 6.914a16.145 16.145 0 0 1-.528 5.31zm39.848-3.766c-4.06 0-7.34 3.169-7.34 7.2 0 4.004 3.28 7.12 7.34 7.12 4.086 0 7.366-3.111 7.366-7.12 0-4.03-3.275-7.2-7.366-7.2zm0 10.557c-1.871 0-3.295-1.513-3.295-3.384s1.424-3.407 3.295-3.407c1.898 0 3.322 1.54 3.322 3.412 0 1.87-1.424 3.385-3.322 3.385v-.006zM90.583 7.362h-7.468a.6.6 0 0 0-.61.612v18.208a.607.607 0 0 0 .61.648h7.468c5.977 0 10.13-3.975 10.13-9.758 0-5.818-4.153-9.71-10.13-9.71zm.177 15.622h-4.087V11.198h4.087c3.308 0 5.588 2.474 5.588 5.866 0 3.336-2.28 5.92-5.588 5.92zm24.82-9.7h-2.809a.63.63 0 0 0-.582.612v.833c-.64-1.057-2.085-1.835-3.884-1.835-3.503 0-6.783 2.75-6.783 7.145 0 4.37 3.251 7.17 6.755 7.17 1.806 0 3.28-.776 3.92-1.833v.86a.585.585 0 0 0 .582.586h2.808a.575.575 0 0 0 .543-.36.564.564 0 0 0 .041-.225V13.896a.595.595 0 0 0-.591-.612zm-6.533 10.196c-1.86 0-3.256-1.43-3.256-3.412s1.397-3.41 3.256-3.41c1.86 0 3.257 1.426 3.257 3.408s-1.395 3.412-3.257 3.412v.002zm22.294-16.118h-2.808a.588.588 0 0 0-.561.355.598.598 0 0 0-.049.229v6.728c-.648-1.002-2.114-1.78-3.948-1.78-3.476 0-6.7 2.75-6.7 7.145 0 4.37 3.252 7.17 6.755 7.17 1.806 0 3.17-.776 3.92-1.833v.86c0 .323.261.584.583.586h2.808a.571.571 0 0 0 .584-.585V7.95a.569.569 0 0 0-.357-.547.573.573 0 0 0-.227-.041zm-6.532 16.152c-1.852 0-3.237-1.444-3.237-3.448s1.39-3.447 3.237-3.447c1.846 0 3.237 1.444 3.237 3.447s-1.384 3.448-3.237 3.448zm22.29-16.152h-2.803a.597.597 0 0 0-.562.355.581.581 0 0 0-.05.229v6.728c-.64-1.002-2.114-1.78-3.947-1.78-3.477 0-6.7 2.75-6.7 7.145 0 4.37 3.253 7.17 6.755 7.17 1.807 0 3.168-.776 3.92-1.833v.86a.586.586 0 0 0 .584.586h2.803a.571.571 0 0 0 .542-.360.564.564 0 0 0 .04-.225V7.95a.567.567 0 0 0-.582-.588zm-6.532 16.152c-1.853 0-3.237-1.444-3.237-3.448s1.39-3.447 3.237-3.447c1.846 0 3.237 1.444 3.237 3.447s-1.38 3.448-3.232 3.448h-.005zm21.906-9.283-4.19 14.37c-.809 2.556-2.613 4.086-5.421 4.086-1.277 0-2.44-.261-3.35-.782-.531-.303-.971-.58-.971-1.023 0-.275.089-.417.25-.675l.832-1.246c.235-.348.408-.461.66-.461a.96.96 0 0 1 .554.192c.523.339 1.008.63 1.748.63.864 0 1.524-.277 1.88-1.306l.360-1.193h-1.696c-.418 0-.648-.25-.751-.584l-3.75-12.008c-.14-.473-.011-.946.683-.946h2.954c.36 0 .613.123.771.64l2.77 9.67 2.589-9.67c.082-.334.306-.64.75-.64h2.802c.552-.001.719.387.526.946zm-96.806 4.274v7.676a.625.625 0 0 1-.635.634h-2.317a.622.622 0 0 1-.634-.634v-2.015c-1.472 1.858-4.03 3.028-6.924 3.028-5.434 0-9.681-4.088-9.681-9.908 0-6.048 4.585-10.217 10.377-10.217 4.276 0 7.694 1.839 9.212 5.537a.842.842 0 0 1 .07.309c0 .175-.116.307-.486.435l-2.706 1.042a.694.694 0 0 1-.511.009.783.783 0 0 1-.324-.371c-.971-1.847-2.7-3.1-5.36-3.1-3.45 0-5.922 2.694-5.922 6.188 0 3.387 2.104 6.172 6.02 6.172 2.06 0 3.703-.97 4.469-2.037H57.87a.625.625 0 0 1-.634-.635v-2.086a.626.626 0 0 1 .634-.634h7.161a.602.602 0 0 1 .587.367.6.6 0 0 1 .049.24z"
-              ></path>
-            </svg>
-            <div class="logo-text"><span></span></div>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aniko Eye Cart Pvt. Ltd. - Premium Optical Retail Showroom</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
 
-          <div class="header-utils">
-            <!-- Dark/Light Mode Toggle Button -->
-            <button id="themeToggle" class="util-btn" title="Toggle dark mode">
-              <i class="fas fa-moon"></i>
-            </button>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <svg class="logo-svg" viewBox="0 0 163 34" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M32.937 1.554c-3.968-2.48-9.193-1.89-13.852 1.039C14.44-.335 9.213-.925 5.25 1.553c-6.27 3.919-7.032 14.01-1.701 22.54 3.93 6.289 10.074 9.974 15.544 9.906 5.47.068 11.615-3.617 15.545-9.906 5.324-8.53 4.568-18.621-1.701-22.54zM6.43 22.292a20.436 20.436 0 0 1-2.46-5.632 16.104 16.104 0 0 1-.534-5.31c.238-3.153 1.521-5.608 3.612-6.914s4.855-1.385 7.8-.217c.441.177.878.38 1.312.606a24.092 24.092 0 0 0-4.228 5.08C8.697 15.086 7.71 20.849 8.84 25.444a20.912 20.912 0 0 1-2.408-3.151H6.43zm27.786-5.634a20.484 20.484 0 0 1-2.46 5.632 21.103 21.103 0 0 1-2.408 3.158c1.01-4.12.324-9.165-2.153-13.897a.624.624 0 0 0-.895-.243l-7.72 4.823a.629.629 0 0 0-.2.87l1.133 1.81a.632.632 0 0 0 .869.2l5.004-3.125c.162.486.324.97.445 1.457.472 1.725.653 3.518.536 5.303-.238 3.15-1.521 5.606-3.612 6.914a7.061 7.061 0 0 1-3.579 1.036h-.16a7.051 7.051 0 0 1-3.578-1.036c-2.093-1.308-3.376-3.763-3.614-6.914a16.143 16.143 0 0 1 .534-5.31 21.015 21.015 0 0 1 6.444-10.314 16.136 16.136 0 0 1 4.532-2.806c2.936-1.168 5.705-1.09 7.797.217 2.093 1.308 3.375 3.76 3.613 6.914a16.145 16.145 0 0 1-.528 5.31zm39.848-3.766c-4.06 0-7.34 3.169-7.34 7.2 0 4.004 3.28 7.12 7.34 7.12 4.086 0 7.366-3.111 7.366-7.12 0-4.03-3.275-7.2-7.366-7.2zm0 10.557c-1.871 0-3.295-1.513-3.295-3.384s1.424-3.407 3.295-3.407c1.898 0 3.322 1.54 3.322 3.412 0 1.87-1.424 3.385-3.322 3.385v-.006zM90.583 7.362h-7.468a.6.6 0 0 0-.61.612v18.208a.607.607 0 0 0 .61.648h7.468c5.977 0 10.13-3.975 10.13-9.758 0-5.818-4.153-9.71-10.13-9.71zm.177 15.622h-4.087V11.198h4.087c3.308 0 5.588 2.474 5.588 5.866 0 3.336-2.28 5.92-5.588 5.92zm24.82-9.7h-2.809a.63.63 0 0 0-.582.612v.833c-.64-1.057-2.085-1.835-3.884-1.835-3.503 0-6.783 2.75-6.783 7.145 0 4.37 3.251 7.17 6.755 7.17 1.806 0 3.28-.776 3.92-1.833v.86a.585.585 0 0 0 .582.586h2.808a.575.575 0 0 0 .543-.36.564.564 0 0 0 .041-.225V13.896a.595.595 0 0 0-.591-.612zm-6.533 10.196c-1.86 0-3.256-1.43-3.256-3.412s1.397-3.41 3.256-3.41c1.86 0 3.257 1.426 3.257 3.408s-1.395 3.412-3.257 3.412v.002zm22.294-16.118h-2.808a.588.588 0 0 0-.561.355.598.598 0 0 0-.049.229v6.728c-.648-1.002-2.114-1.78-3.948-1.78-3.476 0-6.7 2.75-6.7 7.145 0 4.37 3.252 7.17 6.755 7.17 1.806 0 3.17-.776 3.92-1.833v.86c0 .323.261.584.583.586h2.808a.571.571 0 0 0 .584-.585V7.95a.569.569 0 0 0-.357-.547.573.573 0 0 0-.227-.041zm-6.532 16.152c-1.852 0-3.237-1.444-3.237-3.448s1.39-3.447 3.237-3.447c1.846 0 3.237 1.444 3.237 3.447s-1.384 3.448-3.237 3.448zm22.29-16.152h-2.803a.597.597 0 0 0-.562.355.581.581 0 0 0-.05.229v6.728c-.64-1.002-2.114-1.78-3.947-1.78-3.477 0-6.7 2.75-6.7 7.145 0 4.37 3.253 7.17 6.755 7.17 1.807 0 3.168-.776 3.92-1.833v.86a.586.586 0 0 0 .584.586h2.803a.571.571 0 0 0 .542-.360.564.564 0 0 0 .04-.225V7.95a.567.567 0 0 0-.582-.588zm-6.532 16.152c-1.853 0-3.237-1.444-3.237-3.448s1.39-3.447 3.237-3.447c1.846 0 3.237 1.444 3.237 3.447s-1.38 3.448-3.232 3.448h-.005zm21.906-9.283-4.19 14.37c-.809 2.556-2.613 4.086-5.421 4.086-1.277 0-2.44-.261-3.35-.782-.531-.303-.971-.58-.971-1.023 0-.275.089-.417.25-.675l.832-1.246c.235-.348.408-.461.66-.461a.96.96 0 0 1 .554.192c.523.339 1.008.63 1.748.63.864 0 1.524-.277 1.88-1.306l.360-1.193h-1.696c-.418 0-.648-.25-.751-.584l-3.75-12.008c-.14-.473-.011-.946.683-.946h2.954c.36 0 .613.123.771.64l2.77 9.67 2.589-9.67c.082-.334.306-.64.75-.64h2.802c.552-.001.719.387.526.946zm-96.806 4.274v7.676a.625.625 0 0 1-.635.634h-2.317a.622.622 0 0 1-.634-.634v-2.015c-1.472 1.858-4.03 3.028-6.924 3.028-5.434 0-9.681-4.088-9.681-9.908 0-6.048 4.585-10.217 10.377-10.217 4.276 0 7.694 1.839 9.212 5.537a.842.842 0 0 1 .07.309c0 .175-.116.307-.486.435l-2.706 1.042a.694.694 0 0 1-.511.009.783.783 0 0 1-.324-.371c-.971-1.847-2.7-3.1-5.36-3.1-3.45 0-5.922 2.694-5.922 6.188 0 3.387 2.104 6.172 6.02 6.172 2.06 0 3.703-.97 4.469-2.037H57.87a.625.625 0 0 1-.634-.635v-2.086a.626.626 0 0 1 .634-.634h7.161a.602.602 0 0 1 .587.367.6.6 0 0 1 .049.24z">
+            </path>
+          </svg>
+          <div class="logo-text"><span></span></div>
+        </div>
 
-            <!-- Language Selection Dropdown -->
-            <div class="language-dropdown">
-              <button class="util-btn" title="Select language">
-                <i class="fas fa-globe"></i>
-              </button>
-              <div class="dropdown-content">
-                <a href="#" data-lang="en"
-                  ><span class="lang-flag en"></span> English</a
-                >
-                <a href="#" data-lang="hi"
-                  ><span class="lang-flag hi"></span> हिन्दी</a
-                >
-              </div>
-            </div>
-          </div>
-
-          <button class="mobile-menu-btn" id="mobileMenuBtn">
-            <i class="fas fa-bars"></i>
+        <div class="header-utils">
+          <!-- Dark/Light Mode Toggle Button -->
+          <button id="themeToggle" class="util-btn" title="Toggle dark mode">
+            <i class="fas fa-moon"></i>
           </button>
 
-          <nav id="mainNav">
-            <ul>
-              <li><a href="#home">Home</a></li>
-              <li><a href="#services">Services</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#testimonials">Testimonials</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </nav>
-
-          <a href="#" class="cta-button" id="appointmentBtn"
-            >Book Appointment</a
-          >
-        </div>
-      </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-      <div class="container">
-        <div class="hero-content">
-          <h1>Premium Eyewear for Crystal Clear Vision</h1>
-          <p>
-            Discover our curated collection of eyewear that blends fashion with
-            function. Experience premium optical solutions at Aniko Eye Cart
-            Pvt. Ltd.
-          </p>
-
-          <div class="hero-buttons">
-            <a href="#services" class="cta-button">Explore Services</a>
-            <a href="#contact" class="btn-secondary">Visit Us Today</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features" id="services">
-      <div class="container">
-        <div class="section-title">
-          <h2>Our Specialities</h2>
-          <p>
-            Discover our premium services and products designed for your vision
-            and style
-          </p>
-        </div>
-
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i class="fas fa-glasses"></i>
-            </div>
-            <h3>Frames & Sunglasses</h3>
-            <p>Stylish eyewear that blends fashion with function</p>
-            <div class="price-tag">Starting from ₹199/-</div>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i class="fas fa-laptop-medical"></i>
-            </div>
-            <h3>Computerized Eye Test</h3>
-            <p>Comprehensive eye examination by specialists</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i class="fas fa-eye"></i>
-            </div>
-            <h3>Bio Microscopic Exam</h3>
-            <p>Advanced microscopic eye examination</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i class="fas fa-award"></i>
-            </div>
-            <h3>Contact Lenses</h3>
-            <p>All types of contact lenses available</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i class="fas fa-low-vision"></i>
-            </div>
-            <h3>Low Vision Aids</h3>
-            <p>Specialized solutions for low vision</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">
+          <!-- Language Selection Dropdown -->
+          <div class="language-dropdown">
+            <button class="util-btn" title="Select language">
               <i class="fas fa-globe"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="#" data-lang="en"><span class="lang-flag en"></span> English</a>
+              <a href="#" data-lang="hi"><span class="lang-flag hi"></span> हिन्दी</a>
             </div>
-            <h3>International Brands</h3>
-            <p>Premium international eyewear brands</p>
           </div>
         </div>
+
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <nav id="mainNav">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <a href="#" class="cta-button" id="appointmentBtn">Book Appointment</a>
       </div>
-    </section>
+    </div>
+  </header>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-      <div class="container">
-        <div class="about-content">
-          <div class="about-text">
-            <h2>About Us</h2>
-            <p>
-              Welcome to Aniko Eye Cart Pvt. Ltd. your premium destination for
-              optical solutions in Patna. We blend cutting-edge technology with
-              stylish designs to provide you with the best eye-wear experience.
-            </p>
-            <p>
-              Our expert team of eye specialists is dedicated to ensuring your
-              vision is crystal clear. We offer comprehensive eye examinations
-              using state-of-the-art equipment to accurately diagnose and
-              address all your vision needs.
-            </p>
-            <p>
-              At Aniko Eye Cart Pvt. Ltd. we pride ourselves on our curated
-              collection of frames and sunglasses that perfectly balance fashion
-              and function. From budget-friendly options starting at just ₹199
-              to premium international brands, we have something for everyone.
-            </p>
-            <a href="#contact" class="cta-button">Visit Our Showroom</a>
-          </div>
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Premium Eyewear for Crystal Clear Vision</h1>
+        <p>
+          Discover our curated collection of eyewear that blends fashion with
+          function. Experience premium optical solutions at Aniko Eye Cart
+          Pvt. Ltd.
+        </p>
 
-          <div class="about-image"></div>
+        <div class="hero-buttons">
+          <a href="#services" class="cta-button">Explore Services</a>
+          <a href="#contact" class="btn-secondary">Visit Us Today</a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Testimonials Section -->
+  <!-- Features Section -->
+  <section class="features" id="services">
     <div class="container">
       <div class="section-title">
-        <h2>Customer Testimonials</h2>
-        <p>What our valued customers say about their experience</p>
+        <h2>Our Specialities</h2>
+        <p>
+          Discover our premium services and products designed for your vision
+          and style
+        </p>
       </div>
 
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <p class="testimonial-text">
-            The team at Aniko Eye Cart Pvt. Ltd. provided exceptional service.
-            My new glasses are not only stylish but also perfectly suited to my
-            prescription.
-          </p>
-          <div class="testimonial-author">
-            <div class="author-avatar">R</div>
-            <div class="author-info">
-              <h4>Rajesh Kumar</h4>
-              <p>Patna Resident</p>
-            </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-glasses"></i>
           </div>
+          <h3>Frames & Sunglasses</h3>
+          <p>Stylish eyewear that blends fashion with function</p>
+          <div class="price-tag">Starting from ₹199/-</div>
         </div>
 
-        <div class="testimonial-card">
-          <p class="testimonial-text">
-            I was impressed by the wide selection of frames available. The staff
-            helped me find the perfect pair that matched both my style and
-            budget.
-          </p>
-          <div class="testimonial-author">
-            <div class="author-avatar">P</div>
-            <div class="author-info">
-              <h4>Priya Sharma</h4>
-              <p>Regular Customer</p>
-            </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-laptop-medical"></i>
           </div>
+          <h3>Computerized Eye Test</h3>
+          <p>Comprehensive eye examination by specialists</p>
         </div>
 
-        <div class="testimonial-card">
-          <p class="testimonial-text">
-            After years of struggling with contact lenses, the specialists at
-            Aniko Eye Cart Pvt. Ltd. found the perfect solution for me. Their
-            expertise made all the difference.
-          </p>
-          <div class="testimonial-author">
-            <div class="author-avatar">A</div>
-            <div class="author-info">
-              <h4>Amit Patel</h4>
-              <p>Contact Lens User</p>
-            </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-eye"></i>
           </div>
+          <h3>Bio Microscopic Exam</h3>
+          <p>Advanced microscopic eye examination</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-award"></i>
+          </div>
+          <h3>Contact Lenses</h3>
+          <p>All types of contact lenses available</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-low-vision"></i>
+          </div>
+          <h3>Low Vision Aids</h3>
+          <p>Specialized solutions for low vision</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <h3>International Brands</h3>
+          <p>Premium international eyewear brands</p>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-      <div class="container">
-        <div class="contact-content">
-          <div class="contact-info">
-            <h2>Visit Our Showroom</h2>
-
-            <div class="contact-item">
-              <i class="fas fa-map-marker-alt"></i>
-              <div class="contact-details">
-                <h3>Address</h3>
-                <p>
-                  Rajeev Nagar, Main Road Near Chhappan Bhog, Road No-0, Patna
-                </p>
-              </div>
-            </div>
-
-            <div class="contact-item">
-              <i class="fas fa-phone-alt"></i>
-              <div class="contact-details">
-                <h3>Phone</h3>
-                <p>
-                  <a href="tel:7229016360">7229016360</a>,
-                  <a href="tel:9576214494">9576214494</a>
-                </p>
-              </div>
-            </div>
-
-            <div class="contact-item">
-              <i class="fas fa-clock"></i>
-              <div class="contact-details">
-                <h3>Opening Hours</h3>
-                <p>
-                  Monday-Saturday: 10:00 AM - 10:00 PM<br />Sunday: 10:00 AM -
-                  10:00 PM
-                </p>
-              </div>
-            </div>
-
-            <div class="contact-item">
-              <i class="fas fa-calendar-check"></i>
-              <div class="contact-details">
-                <h3>Book Appointment</h3>
-                <p>
-                  Call us or visit our showroom to schedule your eye examination
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="map-container">
-            <div id="map" >
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3597.2290649452702!2d85.09639407539602!3d25.630521977434576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjXCsDM3JzQ5LjkiTiA4NcKwMDUnNTYuMyJF!5e0!3m2!1sen!2sin!4v1752852111560!5m2!1sen!2sin"
-                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-logo">
-            <div class="logo">
-              <div class="logo-text">Aniko <span>Eye Cart Pvt. Ltd.</span></div>
-            </div>
-            <p>Premium Optical Retail Showroom & Eye Check-up Clinic</p>
-
-            <div class="social-links">
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-youtube"></i></a>
-            </div>
-          </div>
-
-          <div class="footer-about">
-            <h3>About Us</h3>
-            <p>
-              Aniko Eye Cart Pvt. Ltd. brings premium optical solutions to
-              Rajeev Nagar, Patna. We offer a curated selection of eyewear that
-              blends fashion with function, promising crystal clear vision.
-            </p>
-          </div>
-
-          <div class="footer-links">
-            <h3>Quick Links</h3>
-            <ul>
-              <li><a href="#home">Home</a></li>
-              <li><a href="#services">Services</a></li>
-              <li><a href="#about">About Us</a></li>
-              <li><a href="#testimonials">Testimonials</a></li>
-              <li><a href="#contact">Contact Us</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="copyright">
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-text">
+          <h2>About Us</h2>
           <p>
-            &copy; 2025 Aniko Eye Cart Pvt. Ltd. All Rights Reserved. | Rajeev
-            Nagar, Patna
+            Welcome to Aniko Eye Cart Pvt. Ltd. your premium destination for
+            optical solutions in Patna. We blend cutting-edge technology with
+            stylish designs to provide you with the best eye-wear experience.
           </p>
+          <p>
+            Our expert team of eye specialists is dedicated to ensuring your
+            vision is crystal clear. We offer comprehensive eye examinations
+            using state-of-the-art equipment to accurately diagnose and
+            address all your vision needs.
+          </p>
+          <p>
+            At Aniko Eye Cart Pvt. Ltd. we pride ourselves on our curated
+            collection of frames and sunglasses that perfectly balance fashion
+            and function. From budget-friendly options starting at just ₹199
+            to premium international brands, we have something for everyone.
+          </p>
+          <a href="#contact" class="cta-button">Visit Our Showroom</a>
         </div>
-      </div>
-    </footer>
 
-    <!-- Appointment Modal -->
-    <div class="modal" id="appointmentModal">
-      <div class="modal-content">
-        <span class="close-modal" id="closeModal">&times;</span>
-        <h2>Book an Appointment</h2>
-        <form id="appointmentForm">
-          <div class="form-group">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" required />
-          </div>
-          <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" required />
-          </div>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" required />
-          </div>
-          <div class="form-group">
-            <label for="service">Service Required</label>
-            <select id="service" required>
-              <option value="">Select a service</option>
-              <option value="eye-test">Computerized Eye Test</option>
-              <option value="frames">Frames & Sunglasses</option>
-              <option value="contacts">Contact Lenses</option>
-              <option value="exam">Bio Microscopic Exam</option>
-              <option value="other">Other Service</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="date">Preferred Date</label>
-            <input type="date" id="date" required />
-          </div>
-          <div class="form-group">
-            <label for="message">Additional Message</label>
-            <textarea id="message"></textarea>
-          </div>
-          <button type="submit" class="submit-btn">Book Appointment</button>
-        </form>
+        <div class="about-image"></div>
       </div>
     </div>
+  </section>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script>
-      // Smooth scrolling for navigation links
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
+  <!-- Testimonials Section -->
+  <div class="container">
+    <div class="section-title">
+      <h2>Customer Testimonials</h2>
+      <p>What our valued customers say about their experience</p>
+    </div>
 
-          const target = document.querySelector(this.getAttribute("href"));
-          if (target) {
-            target.scrollIntoView({
-              behavior: "smooth",
-            });
-          }
-        });
-      });
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <p class="testimonial-text">
+          The team at Aniko Eye Cart Pvt. Ltd. provided exceptional service.
+          My new glasses are not only stylish but also perfectly suited to my
+          prescription.
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar">R</div>
+          <div class="author-info">
+            <h4>Rajesh Kumar</h4>
+            <p>Patna Resident</p>
+          </div>
+        </div>
+      </div>
 
-      // Mobile menu toggle
-      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-      const mainNav = document.getElementById("mainNav");
+      <div class="testimonial-card">
+        <p class="testimonial-text">
+          I was impressed by the wide selection of frames available. The staff
+          helped me find the perfect pair that matched both my style and
+          budget.
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar">P</div>
+          <div class="author-info">
+            <h4>Priya Sharma</h4>
+            <p>Regular Customer</p>
+          </div>
+        </div>
+      </div>
 
-      mobileMenuBtn.addEventListener("click", () => {
-        mainNav.classList.toggle("active");
-        mobileMenuBtn.innerHTML = mainNav.classList.contains("active")
-          ? '<i class="fas fa-times"></i>'
-          : '<i class="fas fa-bars"></i>';
-      });
+      <div class="testimonial-card">
+        <p class="testimonial-text">
+          After years of struggling with contact lenses, the specialists at
+          Aniko Eye Cart Pvt. Ltd. found the perfect solution for me. Their
+          expertise made all the difference.
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar">A</div>
+          <div class="author-info">
+            <h4>Amit Patel</h4>
+            <p>Contact Lens User</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-      // Appointment modal
-      const appointmentBtn = document.getElementById("appointmentBtn");
-      const appointmentModal = document.getElementById("appointmentModal");
-      const closeModal = document.getElementById("closeModal");
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-content">
+        <div class="contact-info">
+          <h2>Visit Our Showroom</h2>
 
-      appointmentBtn.addEventListener("click", (e) => {
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div class="contact-details">
+              <h3>Address</h3>
+              <p>
+                Rajeev Nagar, Main Road Near Chhappan Bhog, Road No-0, Patna
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <div class="contact-details">
+              <h3>Phone</h3>
+              <p>
+                <a href="tel:7229016360">7229016360</a>,
+                <a href="tel:9576214494">9576214494</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <i class="fas fa-clock"></i>
+            <div class="contact-details">
+              <h3>Opening Hours</h3>
+              <p>
+                Monday-Sunday: 10:00 AM - 10:00 PM<br />
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <i class="fas fa-calendar-check"></i>
+            <div class="contact-details">
+              <h3>Book Appointment</h3>
+              <p>
+                Call us or visit our showroom to schedule your eye examination
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-container">
+          <div id="map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3597.2290649452702!2d85.09639407539602!3d25.630521977434576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjXCsDM3JzQ5LjkiTiA4NcKwMDUnNTYuMyJF!5e0!3m2!1sen!2sin!4v1752852111560!5m2!1sen!2sin"
+              width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <div class="logo">
+            <div class="logo-text">Aniko <span>Eye Cart Pvt. Ltd.</span></div>
+          </div>
+          <p>Premium Optical Retail Showroom & Eye Check-up Clinic</p>
+
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-about">
+          <h3>About Us</h3>
+          <p>
+            Aniko Eye Cart Pvt. Ltd. brings premium optical solutions to
+            Rajeev Nagar, Patna. We offer a curated selection of eyewear that
+            blends fashion with function, promising crystal clear vision.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="copyright">
+        <p>
+          &copy; 2025 Aniko Eye Cart Pvt. Ltd. All Rights Reserved. | Rajeev
+          Nagar, Patna
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Appointment Modal -->
+  <div class="modal" id="appointmentModal">
+    <div class="modal-content">
+      <span class="close-modal" id="closeModal">&times;</span>
+      <h2>Book an Appointment</h2>
+      <form id="appointmentForm">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" required />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" required />
+        </div>
+        <div class="form-group">
+          <label for="service">Service Required</label>
+          <select id="service" required>
+            <option value="">Select a service</option>
+            <option value="eye-test">Computerized Eye Test</option>
+            <option value="frames">Frames & Sunglasses</option>
+            <option value="contacts">Contact Lenses</option>
+            <option value="exam">Bio Microscopic Exam</option>
+            <option value="other">Other Service</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="date">Preferred Date</label>
+          <input type="date" id="date" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Additional Message</label>
+          <textarea id="message"></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Book Appointment</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
         e.preventDefault();
-        appointmentModal.style.display = "flex";
-      });
 
-      closeModal.addEventListener("click", () => {
+        const target = document.querySelector(this.getAttribute("href"));
+        if (target) {
+          target.scrollIntoView({
+            behavior: "smooth",
+          });
+        }
+      });
+    });
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    const mainNav = document.getElementById("mainNav");
+
+    mobileMenuBtn.addEventListener("click", () => {
+      mainNav.classList.toggle("active");
+      mobileMenuBtn.innerHTML = mainNav.classList.contains("active")
+        ? '<i class="fas fa-times"></i>'
+        : '<i class="fas fa-bars"></i>';
+    });
+
+    // Appointment modal
+    const appointmentBtn = document.getElementById("appointmentBtn");
+    const appointmentModal = document.getElementById("appointmentModal");
+    const closeModal = document.getElementById("closeModal");
+
+    appointmentBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      appointmentModal.style.display = "flex";
+    });
+
+    closeModal.addEventListener("click", () => {
+      appointmentModal.style.display = "none";
+    });
+
+    window.addEventListener("click", (e) => {
+      if (e.target === appointmentModal) {
         appointmentModal.style.display = "none";
-      });
-
-      window.addEventListener("click", (e) => {
-        if (e.target === appointmentModal) {
-          appointmentModal.style.display = "none";
-        }
-      });
-
-      // Form submission
-      const appointmentForm = document.getElementById("appointmentForm");
-      appointmentForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        alert("Appointment booked successfully! We will contact you shortly.");
-        appointmentForm.reset();
-        appointmentModal.style.display = "none";
-      });
-
-      // Initialize map
-      function initMap() {
-    //     // Coordinates for Patna, Bihar
-    //     const patna = [25.5941, 85.1376];
-
-    //     // Create a map centered at Patna
-    //     const map = L.map("map").setView(patna, 13);
-
-    //     // Add OpenStreetMap tiles
-    //     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    //       attribution:
-    //         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    //     }).addTo(map);
-
-    //     // Add a marker for the showroom
-    //     L.marker(patna)
-    //       .addTo(map)
-    //       .bindPopup("Aniko Eye Cart Pvt. Ltd.<br>Rajeev Nagar, Patna")
-    //       .openPopup();
       }
+    });
 
-      // Initialize the map when the page loads
-      window.addEventListener("load", initMap);
+    // Form submission
+    const appointmentForm = document.getElementById("appointmentForm");
+    appointmentForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert("Appointment booked successfully! We will contact you shortly.");
+      appointmentForm.reset();
+      appointmentModal.style.display = "none";
+    });
 
-      // Scroll animation for elements
-      function animateOnScroll() {
-        const elements = document.querySelectorAll(
-          ".feature-card, .testimonial-card"
-        );
+    // Initialize map
+    function initMap() {
+      //     // Coordinates for Patna, Bihar
+      //     const patna = [25.5941, 85.1376];
 
-        elements.forEach((element) => {
-          const elementPosition = element.getBoundingClientRect().top;
-          const screenPosition = window.innerHeight / 1.3;
+      //     // Create a map centered at Patna
+      //     const map = L.map("map").setView(patna, 13);
 
-          if (elementPosition < screenPosition) {
-            element.classList.add("visible");
-          }
-        });
-      }
+      //     // Add OpenStreetMap tiles
+      //     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      //       attribution:
+      //         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      //     }).addTo(map);
 
-      // Run animations on scroll
-      window.addEventListener("scroll", animateOnScroll);
+      //     // Add a marker for the showroom
+      //     L.marker(patna)
+      //       .addTo(map)
+      //       .bindPopup("Aniko Eye Cart Pvt. Ltd.<br>Rajeev Nagar, Patna")
+      //       .openPopup();
+    }
 
-      // Initial check on page load
-      window.addEventListener("load", animateOnScroll);
+    // Initialize the map when the page loads
+    window.addEventListener("load", initMap);
 
-      // Header scroll effect
-      window.addEventListener("scroll", () => {
-        const header = document.querySelector("header");
-        if (window.scrollY > 100) {
-          header.style.padding = "10px 0";
-          header.style.boxShadow = "0 2px 10px rgba(0,0,0,0.1)";
-        } else {
-          header.style.padding = "15px 0";
-          header.style.boxShadow = "0 2px 15px rgba(0,0,0,0.1)";
-        }
-      });
-
-      // Dark/Light Mode Toggle
-      const themeToggle = document.getElementById("themeToggle");
-      const themeIcon = themeToggle.querySelector("i");
-
-      // Check for saved theme preference
-      const savedTheme = localStorage.getItem("theme");
-      if (savedTheme === "dark") {
-        document.body.classList.add("dark-mode");
-        themeIcon.classList.replace("fa-moon", "fa-sun");
-      }
-
-      themeToggle.addEventListener("click", () => {
-        document.body.classList.toggle("dark-mode");
-
-        // Update icon based on current mode
-        if (document.body.classList.contains("dark-mode")) {
-          themeIcon.classList.replace("fa-moon", "fa-sun");
-          localStorage.setItem("theme", "dark");
-        } else {
-          themeIcon.classList.replace("fa-sun", "fa-moon");
-          localStorage.setItem("theme", "light");
-        }
-      });
-
-      // Language Selection
-      const langLinks = document.querySelectorAll(".dropdown-content a");
-      langLinks.forEach((link) => {
-        link.addEventListener("click", (e) => {
-          e.preventDefault();
-          const selectedLang = link.getAttribute("data-lang");
-          // For demonstration, we'll just show an alert
-          alert(
-            `Language changed to ${selectedLang === "en" ? "English" : "Hindi"}`
-          );
-        });
-      });
-
-      // Mobile dropdown functionality
-      const languageBtn = document.querySelector(
-        ".language-dropdown .util-btn"
+    // Scroll animation for elements
+    function animateOnScroll() {
+      const elements = document.querySelectorAll(
+        ".feature-card, .testimonial-card"
       );
-      const dropdownContent = document.querySelector(".dropdown-content");
 
-      languageBtn.addEventListener("click", () => {
-        if (window.innerWidth <= 768) {
-          dropdownContent.style.display =
-            dropdownContent.style.display === "block" ? "none" : "block";
+      elements.forEach((element) => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+
+        if (elementPosition < screenPosition) {
+          element.classList.add("visible");
         }
       });
+    }
 
-      // Close dropdown when clicking elsewhere
-      document.addEventListener("click", (e) => {
-        if (
-          !e.target.closest(".language-dropdown") &&
-          window.innerWidth <= 768
-        ) {
-          dropdownContent.style.display = "none";
-        }
+    // Run animations on scroll
+    window.addEventListener("scroll", animateOnScroll);
+
+    // Initial check on page load
+    window.addEventListener("load", animateOnScroll);
+
+    // Header scroll effect
+    window.addEventListener("scroll", () => {
+      const header = document.querySelector("header");
+      if (window.scrollY > 100) {
+        header.style.padding = "10px 0";
+        header.style.boxShadow = "0 2px 10px rgba(0,0,0,0.1)";
+      } else {
+        header.style.padding = "15px 0";
+        header.style.boxShadow = "0 2px 15px rgba(0,0,0,0.1)";
+      }
+    });
+
+    // Dark/Light Mode Toggle
+    const themeToggle = document.getElementById("themeToggle");
+    const themeIcon = themeToggle.querySelector("i");
+
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      document.body.classList.add("dark-mode");
+      themeIcon.classList.replace("fa-moon", "fa-sun");
+    }
+
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+
+      // Update icon based on current mode
+      if (document.body.classList.contains("dark-mode")) {
+        themeIcon.classList.replace("fa-moon", "fa-sun");
+        localStorage.setItem("theme", "dark");
+      } else {
+        themeIcon.classList.replace("fa-sun", "fa-moon");
+        localStorage.setItem("theme", "light");
+      }
+    });
+
+    // Language Selection
+    const langLinks = document.querySelectorAll(".dropdown-content a");
+    langLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const selectedLang = link.getAttribute("data-lang");
+        // For demonstration, we'll just show an alert
+        alert(
+          `Language changed to ${selectedLang === "en" ? "English" : "Hindi"}`
+        );
       });
-    </script>
-  </body>
+    });
+
+    // Mobile dropdown functionality
+    const languageBtn = document.querySelector(
+      ".language-dropdown .util-btn"
+    );
+    const dropdownContent = document.querySelector(".dropdown-content");
+
+    languageBtn.addEventListener("click", () => {
+      if (window.innerWidth <= 768) {
+        dropdownContent.style.display =
+          dropdownContent.style.display === "block" ? "none" : "block";
+      }
+    });
+
+    // Close dropdown when clicking elsewhere
+    document.addEventListener("click", (e) => {
+      if (
+        !e.target.closest(".language-dropdown") &&
+        window.innerWidth <= 768
+      ) {
+        dropdownContent.style.display = "none";
+      }
+    });
+  </script>
+</body>
+
 </html>
